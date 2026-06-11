@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamerClass | Sistema Interclasses Pro</title>
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside>
+            <div class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GamerClass</span>
+            </div>
+            <nav id="sidebar-nav">
+                <ul>
+                    <li data-view="dashboard" class="active"><i class="fas fa-chart-pie"></i> Painel</li>
+                    <li data-view="jogos"><i class="fas fa-trophy"></i> Jogos</li>
+                    <li data-view="times"><i class="fas fa-users"></i> Times</li>
+                    <li data-view="competidores"><i class="fas fa-user-ninja"></i> Competidores</li>
+                    <li data-view="confrontos"><i class="fa-solid fa-hand-fist"></i></i> Confrontos</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Área principal -->
+        <main>
+            <!-- Dashboard -->
+            <section id="view-dashboard" class="view active">
+                <div class="hero">
+                    <h1>Arena GamerClass</h1>
+                    <p class="subtitle">O epicentro da competição interclasses 2026.</p>
+                </div>
+                <div class="stats-row" id="dashboard-stats"></div>
+                <h2>Próximos Grandes Confrontos</h2>
+                <div class="grid-container" id="upcoming-matches"></div>
+            </section>
+
+            <!-- Jogos -->
+            <section id="view-jogos" class="view">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h1>Jogos Digitais</h1>
+                            <p class="subtitle">Lista de modalidades e categorias do evento.</p>
+                        </div>
+                        <button class="btn-primary" onclick="abrirFormulario('jogo')">Novo Jogo</button>
+                    </div>
+                </header>
+                <div class="grid-container" id="list-jogos"></div>
+            </section>
+
+            <!-- Times -->
+            <section id="view-times" class="view">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h1>Times da Casa</h1>
+                            <p class="subtitle">Equipes formadas para a glória eterna.</p>
+                        </div>
+                        <button class="btn-primary" onclick="abrirFormulario('time')">Novo Time</button>
+                    </div>
+                </header>
+                <div class="grid-container" id="list-times"></div>
+            </section>
+
+            <!-- Competidores -->
+            <section id="view-competidores" class="view">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h1>Elite Competidora</h1>
+                            <p class="subtitle">Os heróis que fazem o espetáculo acontecer.</p>
+                        </div>
+                        <button class="btn-primary" onclick="abrirFormulario('competidor')">Novo Competidor</button>
+                    </div>
+                </header>
+                <div class="grid-container" id="list-competidores"></div>
+            </section>
+
+            <!-- Confrontos -->
+            <section id="view-confrontos" class="view">
+                <header>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h1>Confrontos Diretos</h1>
+                            <p class="subtitle">Acompanhe e registre os resultados épicos.</p>
+                        </div>
+                        <button class="btn-primary" onclick="abrirFormulario('confronto')">Registrar Confronto</button>
+                    </div>
+                </header>
+                <div class="grid-container" id="list-confrontos"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-container" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(10px); z-index:1000; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition: all 0.3s cubic-bezier(0.4,0,0.2,1);">
+        <div class="form-container" id="form-content"></div>
+    </div>
+
+    <script src="service/api.js"></script>
+    <script src="controller/app.js"></script>
+</body>
+</html>
