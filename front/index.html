@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GamerClass | Sistema Interclasses Pro</title>
     <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/elementos_inteligentes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -21,13 +22,28 @@
                     <li data-view="jogos"><i class="fas fa-trophy"></i> Jogos</li>
                     <li data-view="times"><i class="fas fa-users"></i> Times</li>
                     <li data-view="competidores"><i class="fas fa-user-ninja"></i> Competidores</li>
-                    <li data-view="confrontos"><i class="fa-solid fa-hand-fist"></i></i> Confrontos</li>
+                    <li data-view="confrontos"><i class="fa-solid fa-hand-fist"></i> Confrontos</li>
                 </ul>
             </nav>
         </aside>
 
         <!-- Área principal -->
         <main>
+            <!-- 🎞️ BANNER ROTATIVO -->
+            <div id="banner-rotativo" class="banner"></div>
+
+            <!-- 🔍 BUSCA GLOBAL -->
+            <div class="busca-container">
+                <div class="busca-input-wrap">
+                    <i class="fas fa-search busca-lupa"></i>
+                    <input type="text" id="busca-global"
+                           placeholder="Buscar times, jogadores, jogos... (Ctrl+K)"
+                           autocomplete="off">
+                    <button id="limpar-busca" style="display:none;"><i class="fas fa-times"></i></button>
+                </div>
+                <div id="resultado-busca" class="busca-resultado"></div>
+            </div>
+
             <!-- Dashboard -->
             <section id="view-dashboard" class="view active">
                 <div class="hero">
@@ -35,6 +51,11 @@
                     <p class="subtitle">O epicentro da competição interclasses 2026.</p>
                 </div>
                 <div class="stats-row" id="dashboard-stats"></div>
+
+                <!-- 🏅 RANKING AUTOMÁTICO -->
+                <h2>🏅 Ranking do Torneio</h2>
+                <div id="ranking-container"></div>
+
                 <h2>Próximos Grandes Confrontos</h2>
                 <div class="grid-container" id="upcoming-matches"></div>
             </section>
