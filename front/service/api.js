@@ -4,14 +4,13 @@ const BASE_URL = './data.json';
 
 // Função interna que simula um GET na "API"
 async function _get(endpoint) {
-    const response = await fetch(BASE_URL);
+    try {
+        const response = await fetch(BASE_URL);
 
     if (!response.ok) {
-        throw new Error(`Erro ao buscar ${endpoint}: status ${response.status}`);
+        throw new Error(`Erro ao buscar ${endpoint}: ${response.statusText}`);
     }
-
     const data = await response.json();
-
     // Mapeia cada endpoint para a chave correspondente no JSON
     const rotas = {
         '/jogos': data.games,
@@ -19,8 +18,10 @@ async function _get(endpoint) {
         '/competidores': data.competitors,
         '/confrontos': data.matches,
     };
-
     return rotas[endpoint] ?? [];
+    }catch(error){
+        alert(error);
+    }
 }
 
 // Retorna todos os jogos
